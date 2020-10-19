@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Agora Extender",
+    "version": "1.0.1",
+    "description": "Use the Agora service to present users with contextually relevant test data based on the current URL",
+    "short_name": "The Agora Extender",
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "*://agora-data-aggregation.herokuapp.com/*"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+      },
+    "browser_action": {
+        "default_icon": "hi.png"
+     }
+}
