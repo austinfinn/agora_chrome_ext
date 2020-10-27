@@ -10,14 +10,6 @@
         "*://agora-data-aggregation.herokuapp.com/*"
     ],
     "content_security_policy":"script-src 'self'; object-src 'self'",
-    "content_scripts":[
-        {
-            "matches":[
-                "<all_urls>"
-            ],
-            "js":["content.js"]
-        }
-    ],
     "background": {
         "scripts": ["background.js"]
       },
