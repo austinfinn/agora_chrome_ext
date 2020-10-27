@@ -1,22 +1,14 @@
-// const axios = require('axios')
+console.log("Background script is running!!")
 
-chrome.browserAction.onClicked.addListener(buttonClicked);
+chrome.runtime.onMessage.addListener(handleMessage)
 
-async function buttonClicked(tab) {
-    console.log(tab)
+function handleMessage(msg,sender,sendResponse) {
 
-    chrome.tabs.duplicate(tab.id)
-    let url = tab.url
-
-    if (url.includes(`qantas`)){
-        try {
-            const result = await fetch('http://agora-data-aggregation.herokuapp.com/v1/health/openBankingApi/CBA')
-            
-            console.log(result)
-
-        } catch (error) {
-            console.log("Error ", error)
-        }
+    if (msg.findActiveTabUrl) {
+        chrome.tabs.query({ active: true }, function (tabs) {
+            chrome.runtime.sendMessage({
+                currentUrl: tabs[0].url
+            });
+        })
     }
-
 }
