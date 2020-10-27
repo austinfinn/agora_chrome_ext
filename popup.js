@@ -9,7 +9,9 @@ async function healthCheck() {
         if (activeTabUrl.includes("agora")) {
             const result = await fetch('http://agora-data-aggregation.herokuapp.com/v1/health/openBankingApi/CBA')
             console.log("the result is ", result)
-        } 
+        } else {
+          console.log("You must use an Agora URL for this Chrome extension to work ")
+      }
 
     } catch (error) {
         console.log("Error ", error)
