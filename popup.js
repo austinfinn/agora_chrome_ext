@@ -4,13 +4,13 @@ async function healthCheck() {
     chrome.runtime.sendMessage({ findActiveTabUrl: true })
 
     try {
-        const { currentUrl } =  await handleMessage()
+        const { activeTabUrl } =  await handleMessage()
         
-        if (currentUrl.includes("agora")) {
+        if (activeTabUrl.includes("agora")) {
             const result = await fetch('http://agora-data-aggregation.herokuapp.com/v1/health/openBankingApi/CBA')
             console.log("the result is ", result)
-        }
-        
+        } 
+
     } catch (error) {
         console.log("Error ", error)
     }
