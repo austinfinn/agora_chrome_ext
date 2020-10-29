@@ -1,7 +1,7 @@
 console.log("The popup file has been called")
 
 async function healthCheck() {
-    chrome.runtime.sendMessage({ findActiveTabUrl: true })
+    chrome.runtime.sendMessage({ getActiveTabUrl: true })
 
     try {
         const { activeTabUrl } =  await handleMessage()
